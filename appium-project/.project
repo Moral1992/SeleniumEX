@@ -1,0 +1,5 @@
+#Thu Aug 23 17:47:41 IDT 2018
+platform=GENERIC
+version=1
+mobile=true
+app.name=adb\:MSM8996 for arm64
