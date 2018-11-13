@@ -30,9 +30,27 @@ public class WebdriverMethods {
 	     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	     driver.get("https://www.imdb.com/");
     }
-   
     
+    @Test
+    public void GetTitle()
+    {
+	     driver.navigate().refresh();
+	     if (driver.getTitle().equals("IMDb - Movies, TV and Celebrities - IMDb"))
+	    	 System.out.println("Titles are matched");
+	     else
+	   	    	 System.out.println("Titles are NOT matched");
+	    // String PageTitle = driver.getTitle();
+	     	//System.out.println(PageTitle);
+	     //String ExpectedTitle = "IMDb - Movies, TV and Celebrities - IMDb";
+	     //if (PageTitle == ExpectedTitle)
+	    	// System.out.println("Titles are matched");
+	    // else
+	  //  	 System.out.println("Titles are NOT matched");
+    }
     
-    
-    
+    @AfterClass
+    public static void CloseBrowser()
+    {
+    	driver.quit();
+    }
 }
