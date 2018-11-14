@@ -1,0 +1,63 @@
+1) WebDriver interface: invoking methods on a web browser
+	From a WebDriver class we can create object which can control the functionality of the browser
+	(for example: driver.get("http:/www.google.com");) --- driver = object
+	
+2) WebElement interface: invoking methods on a web application
+
+WebDriver Methods:
+1. get ().	
+2. getCurrentUrl().	
+3. getTitle().	
+4. getPageSource().	
+5. findElement().	
+6. findElements().	
+7. close().	
+8. quit().	
+9. getWindowHandle().	
+10. getWindowHandles().	
+11. switchTo().	
+12. navigate().	
+13. manage().
+
+Web operations on web Elements:
+1.click().
+2.sendkeys().
+3.clear().
+4.getText().
+5.getTagName().
+6.getLocation().
+7.isSelected().
+8.isDisplayed().
+9.isEnabled().
+10.getAttribute().
+-----------------------------------------------------------------------------------------------------------------
+
+HTML Reminder:
+<h1 class="foo">News</h1>
+<> = opening tag
+</> = closing tag
+class="foo" = Attribute
+News = content
+-----------------------------------------------------------------------------------------------------------------
+	
+SYNTAX:	
+1) driver.findElement(By.<Locator Type>(<Locator Value>));
+2) findElement is a function that returns WebElement! (WebElement Test = driver.findElement(By.id("123"));)
+3) findElement = return the FIRST element it finds
+4) findElements = return the ALL the element it finds:
+		List<WebElement> AllLinks = driver.findElements(By.TagName("a"));
+		AllLinks.get(0);
+-----------------------------------------------------------------------------------------------------------------
+
+Priorities:
+	id
+	name --- <input name="register" class="required" type="text"/> --- driver.findElement(By.name("register"));
+	css selector
+	xpath
+	linktext --- <a href="http:/yonniflenner.com">Download</a> --- driver.findElement(By.linktext("Download"));
+	partial linktext  --- <a href="http:/yonniflenner.com">Download my files</a> --- driver.findElement(By.PartialLinkText("Download"));
+	class name --- <input name="register" class="required" type="text"/> --- driver.findElement(By.className("required"));
+	tag name --- <p>My Title</p> --- driver.findElement(By.TagName("p"));
+-----------------------------------------------------------------------------------------------------------------
+
+	
