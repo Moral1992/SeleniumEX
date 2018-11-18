@@ -52,8 +52,36 @@ SYNTAX:
 Priorities:
 	id
 	name --- <input name="register" class="required" type="text"/> --- driver.findElement(By.name("register"));
-	css selector
-	xpath
+	css selector --- 
+		<input key="123">...</input> --- driver.findElement(By.cssSelectoer("input[key='123']"));
+		starting text --- <input key="Testing123">...</input> --- driver.findElement(By.cssSelectoer("input[key^='Test']"));
+		ending text --- <input key="Testing123">...</input> --- driver.findElement(By.cssSelectoer("input[key$='123']"));
+		text contained --- <input key="Testing123"> --- driver.findElement(By.cssSelectoer("input[key*='ng12']"));
+		AND --- <input key="Testing123" type="Android">--- driver.findElement(By.cssSelectoer("input[key='123'][Type='Android']"));
+		
+	xpath --- 
+		Absolute/Native = go from root --- /html/body/div/table/tr/td/span ---driver.findElement(By.xpath("/html/body/div/table/tr/td/span"));
+		Relative = telling the path in between --- //table/tr/td/span 	
+			based on index --- driver.findElement(By.xpath("//li[3]"));
+			using ID attribute --- driver.findElement(By.xpath("//input[@id='Form1']"));
+			using NAME attribute --- driver.findElement(By.xpath("//input[@name='age']"));
+			using SIZE attribute --- driver.findElement(By.xpath("//input[@size='13']"));
+			using * --- <input style="width:140px" name="age" type="text"> --- driver.findElement(By.xpath("//input[@*='age']"));
+			using logical operators to filter elements (OR/AND):
+				driver.findElement(By.xpath("//input[@id='Form1' or @name='age']"));
+				driver.findElement(By.xpath("//input[@id='Form1' and @name='age']"));
+			using start-with end-with: --- <input value="Login" id="btn123" type="submit"> --- 
+				driver.findElement(By.xpath("//input[starts-with(@id,'btn')]"));
+				driver.findElement(By.xpath("//input[starts-with(@id,'123')]"));
+			using contains: --- <input value="Login" id="btn123" type="submit"> --- 
+				driver.findElement(By.xpath("//input[contains(@id,'tn12')]"));
+				OR
+				driver.findElement(By.xpath("//*[contains(@id,'tn12')]"));
+			using contains: --- <p>testing</p> --- 	
+				driver.findElement(By.xpath("//p[text()='testing']"));
+				OR
+				driver.findElement(By.xpath("//*[text()='testing']"));
+			MORE EXAMPLES: https://www.w3schools.com/xml/xpath_intro.asp
 	linktext --- <a href="http:/yonniflenner.com">Download</a> --- driver.findElement(By.linktext("Download"));
 	partial linktext  --- <a href="http:/yonniflenner.com">Download my files</a> --- driver.findElement(By.PartialLinkText("Download"));
 	class name --- <input name="register" class="required" type="text"/> --- driver.findElement(By.className("required"));
