@@ -87,5 +87,80 @@ Priorities:
 	class name --- <input name="register" class="required" type="text"/> --- driver.findElement(By.className("required"));
 	tag name --- <p>My Title</p> --- driver.findElement(By.TagName("p"));
 -----------------------------------------------------------------------------------------------------------------
+Controllers:
+Located in the DOM and give us the ability to control some aspect in the web application (for example <button>)
+List of controllers:
+button  --- 
+	1) <button id = "MyButton" value= "Click me">
+	driver.findElement(By.id("MyButton")).click(); / webelement element = driver.findElement(By.name("register")); element.click();
+	2) <input id = "MyButton" value = "Submit" />
+	driver.findElement(By.id("MyButton")).submit();
+WHAT IS THE DIFFERENCE? = submit() can submit on any element under Form tag (i,e: driver.findElement(By.id("MyText")).submit();)
+
+link text --- <a href="http:/yonniflenner.com">Download</a> --- driver.findElement(By.linktext("Download")).click();
+area text/text box --- <textarea rows="4" cols="50" id="MyText" >...</textarea> 
+						driver.findElement(By.id("MyText")).sendKeys("Hello World");
+						driver.findElement(By.id("MyText")).clear();
+						
+radio button --- <input type="radio" name="group1Milk" value="Milk'>Milk 
+				 <input type="radio" name="group1Butter" value="Butter">Butter 
+				 <input type="radio" name="group1Cheese" value="Cheese">Cheese
+					driver.findElement(By.name("group1Cheese")).click();
+					
+checkbox --- <input type="checkbox" name="option1" value="Milk'>Milk 
+			 <input type="checkbox" name="option2" value="Butter">Butter 
+			 <input type="checkbox" name="option3" value="Cheese">Cheese
+				driver.findElement(By.name("option1")).click();
+				driver.findElement(By.name("option2")).click();
+				 
+drop down list/combo box --- here we need to use the Select class(included in selenium). there are few methods:
+		<select id="myComboBox">
+			<option value="Milk">MyMilk</option>
+			<option value="Butter">MyButter</option>
+			<option value="Cheese">MyCheese</option>
+		</select>
+		1)selectByVisibleText --- select MySelection = new Select(driver.findElement(By.id("myComboBox")));
+								  MySelection.selectByVisibleText("MyCheese");
+		2)selectByIndex--- select MySelection = new Select(driver.findElement(By.id("myComboBox")));
+								  MySelection.selectByIndex("1");
+		3)selectByValue--- select MySelection = new Select(driver.findElement(By.id("myComboBox")));
+								  MySelection.selectByValue("Cheese");
+		**Print all elements in the combo box:
+		select MySelection = new Select(driver.findElement(By.id("myComboBox")));
+		List<WebElement> MyComboList = MySelection.getOptions();
+		int iListSize = MyComboList.size();
+		for(int i=0; i<iListSize; i++)
+		{
+			String sValue=MyComboList.get(i).getText();
+			System.out.println(sValue);
+		}
+
+date picker --- DatePicker is a table so navigate to each cell, check its value and select it:
+				driver.findElement(By.id("datepicker")).click(); // click to open DatePicker controllers
+				WebElement dateWidget = driver.findElement(By.id(ui-datepicker-div);
+				List<WebElement> cells = dateWidget.findElements(By.tagName("td"));
+				for (WebElement cell : cells)
+				{
+					if(cell.getText().equals("18"))
+					{
+						cell.click();
+						break;
+					}
+				}
+				
+list
+forms
+web table
+drag&drop element
+double click element
+right click element
+mouse scroll
+mouse hover
+multiple selection
+
+Upload files = OS Window is open (browse)
+ONLY IF THE CONTROL BUTTON CONTAINS: <input type="file" id="myId" />:
+	driver.findElement(By.id("myId")).sendKeys("C:\\myPhoto.jpg");
+-----------------------------------------------------------------------------------------------------------------
 
 	
