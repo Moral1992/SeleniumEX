@@ -20,7 +20,7 @@ public class LocatorsBasic {
     	 System.setProperty("webdriver.chrome.driver","C:/SeleniumJavaDrivers/chromedriver.exe");
          driver= new ChromeDriver();   
 	     driver.manage().window().maximize();
-	     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	     driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	     driver.get("https://www.seleniumhq.org/");
     }
 	
