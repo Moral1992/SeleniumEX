@@ -29,7 +29,14 @@ Web operations on web Elements:
 7.isSelected().
 8.isDisplayed().
 9.isEnabled().
-10.getAttribute().
+10.getAttribute() (i.e - getAttribute("value"))
+11.getsize()
+12.getsize().getwidth()
+13.getsize().getheight()
+14.getlocation()
+15.getocation().getX()
+16.getocation().getY()
+
 -----------------------------------------------------------------------------------------------------------------
 
 HTML Reminder:
@@ -162,5 +169,6 @@ Upload files = OS Window is open (browse)
 ONLY IF THE CONTROL BUTTON CONTAINS: <input type="file" id="myId" />:
 	driver.findElement(By.id("myId")).sendKeys("C:\\myPhoto.jpg");
 -----------------------------------------------------------------------------------------------------------------
+Assertion:
 
 	
