@@ -171,4 +171,31 @@ ONLY IF THE CONTROL BUTTON CONTAINS: <input type="file" id="myId" />:
 -----------------------------------------------------------------------------------------------------------------
 Assertion:
 
+verifications:
+driver.findElement(By.id("TEST")).isDisplayed(); --- returns boolean
+isEnabled();
+isSelected();
+getSize(); --- return a dimension object
+getSize().getWidth(); --- dimensions (int)
+getSize().getHeight(); --- dimensions (int)
+getLocation(); --- return a point object
+getLocation().getX(); --- (int)
+getLocation().getY(); --- (int)
+getTagName() --- (string)
+getText();
+getAttribute("value"); 
+
+assertions:(JUNIT):
+assertEquals(Expected, Actual)
+assertEquals(Message, Expected, Actual)	
+assertNotEquals(Expected, Actual)
+assertNotEquals(Message, Expected, Actual)	
+assertTrue(Condition)
+assertTrue(Message, Condition)
+assertFalse(Condition)
+assertFalse(Message, Condition)
+assertNull(WebElement)
+assertNotNull(WebElement)
+assertArrayEqauls(Type, Type)
+Fail(Message)
 	
